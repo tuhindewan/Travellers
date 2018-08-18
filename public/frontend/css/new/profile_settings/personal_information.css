@@ -1,0 +1,167 @@
+.profile-left-section{width: 78.7%;padding: 0px !important;margin-top: -6px;}
+.profileSet-ui-block {
+    background-color: #fff;
+    border-radius: 5px;
+    border: 1px solid #e6ecf5;
+    margin-bottom: 15px;
+}
+.profileSet-ui-block-title:first-child {
+    border-top: none;
+    border-bottom: 1px solid #e6ecf5;
+}
+.profileSet-ui-block-title.profileSet-ui-block-title-small {
+    padding: 10px 25px;
+}
+.profileSet-ui-block-title {
+    padding: 23px 25px 18px;
+    line-height: 1;
+    border-top: 1px solid #e6ecf5;
+    display: table;
+    width: 100%;
+    position: relative;
+    border-radius: 5px 5px 0 0;
+}
+.profileSet-ui-block-title.profileSet-ui-block-title-small .title {
+    font-size: 9px;
+    text-transform: uppercase;
+    color: #9a9fbf;
+    font-weight: bolder;
+}
+.profileSet-ui-block-title > * {
+    margin-bottom: 0;
+    display: table-cell;
+    vertical-align: middle;
+}
+.card-header a .olymp-dropdown-arrow-icon {
+    width: 6px;
+    height: 4px;
+}
+.card {
+    border: none;
+}
+.card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border-radius: 0.25rem;
+}
+.card-header {
+    padding: 0.75rem 1.25rem;
+    margin-bottom: 0;
+    background-color: #fff;
+    border-bottom: 1px solid #e6ecf5;
+}
+
+.card-header a {
+    color: #515365;
+    display: block;
+    font-weight: bolder;
+    font-size: 14px;
+    padding-left: 13px;
+}
+.card-header a:hover, .card-header a:focus {
+    color: #515365;
+    text-decoration: none;
+}
+.your-profile-menu {
+    padding: 12px 25px;
+    margin-bottom: 0;
+}
+ul {
+	list-style: none;}
+.collapse.show {
+    display: block;
+}
+.your-profile-menu li a {
+    font-size: 11px;
+    padding: 12px 0;
+    color: #888da8;
+    display: block;
+    font-weight: 700;
+}
+.card-header i, .card-header svg {
+    float: right;
+    transition: all .3s ease;
+    margin-top: 8px;
+}
+.card, .card-title{margin-bottom: -1px;}
+.your-profile-menu li a:hover {
+    color: #515365;
+}
+.bg-primary-notty {
+    background-color: #ff5e3a !important;
+}
+a.bg-primary-notty:focus, a.bg-primary-notty:hover {
+    background-color: #ff3407 !important;
+}
+.profileSet-ui-block-title a:hover {
+    color: #ff5e3a;
+    text-decoration: none;
+}
+.profileSet-ui-block-title a:focus {
+    color: #ff5e3a;
+    text-decoration: none;
+}
+.profileSet-ui-block-title a{
+	font-weight: bolder;
+	font-size: 14px;
+	color: #515365;
+}
+.profileSet-ui-block-title .title{
+	font-weight: bolder;
+	font-size: 14px;
+	color: #515365;
+}
+.items-round-little:hover {
+    color: #fff;
+}
+.items-round-little {
+    color: #fff !important;
+    font-weight: 700 !important;
+    font-size: 10px !important;
+    text-align: center;
+    width: 19px;
+    height: 19px;
+    line-height: 19px;
+    border-radius: 100%;
+    margin-left: 12px;
+}
+.profileSet-ui-block-title {
+    border-bottom: none;
+}
+.profileSet-ui-block-content {
+    padding: 24px 23px 23px;
+}
+.profileSet_formGroup {
+    position: relative;
+    margin-bottom: 1.4rem;
+}
+.profileSet_formGroup .control-label {
+    color: #888da8;
+}
+.profileSet_formGroup .form-control, .profileSet_formGroup input, .profileSet_formGroup select {
+    line-height: 1.8;
+    height: 30px;
+}
+.profileSet_formGroup  .form-control {
+    color: #515365;
+    line-height: inherit;
+    font-size: .875rem;
+}
+.profileSet_formGroup .form-control:focus {
+    color: #495057;
+    background-color: transparent;
+    border-color: #ffc6ba;
+    outline: none;
+}
+
+.btn-change{background-color: #ff5e3a;color: #fff !important;}
+.btn-change:hover{background-color: #ff763a;}
+.btn-restore{background-color: #9a9fbf;color: #fff;}
+.btn-restore:hover{background-color: #ff5e3a;border-color: #ff5e3a;opacity: 1;color: #fff;}
+.btn-save-change{background-color: #ff5e3a;color: #fff !important;}
+.btn-change:hover{background-color: #ff763a;}

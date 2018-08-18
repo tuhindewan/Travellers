@@ -1,0 +1,143 @@
+
+	.img-chat {width: 34px;height: 34px;border : 0px !important;border-radius: 22px;}
+	.connected-status{color: #00A63A;padding-right: 5px;}
+	.absent-status{color: #F60202;padding-right: 5px;}
+	.away-status{color: #F6E402;padding-right: 5px;}
+	.chat-search{padding: inherit;}
+	.chat_search_box_panel{     margin-left: 14px;padding-left: 35px;padding-right: 40px;z-index: 14 !important; color: #fff; cursor: text; text-decoration: inherit; background: transparent; width: 91.6%; border-right: none; border-left: none;}
+	.chat_search_box_panel::placeholder{color: #fff;}
+	.panel-bottom{flex: 1 1 auto;}
+	hr.hrStyle{flex: 0 0 auto;border-top: 3px double #8c8b8b; height: 3px; cursor: row-resize; margin: 5px auto;}
+	.list-group-item{padding: 5px;background: transparent; color: white; border: none;}
+	.list-group-item:hover{background: transparent !important;}
+	.list-group-item span{color: white;}
+	.announce-scroll { width: 200px;height: 400px;overflow-y: scroll;}
+	.announce-scroll::-webkit-scrollbar {width: 12px;}
+	.announce-scroll::-webkit-scrollbar-track {-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);border-radius: 10px;
+	}
+	.announce-scroll::-webkit-scrollbar-thumb {border-radius: 10px;-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+	}
+	.message-scroll { width: 200px;height: 400px;overflow-y: scroll;}
+	.message-scroll::-webkit-scrollbar {width: 12px;}
+	.message-scroll::-webkit-scrollbar-track {-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);border-radius: 10px;
+	}
+	.message-scroll::-webkit-scrollbar-thumb {border-radius: 10px;-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+	}
+	.announce-text-div{margin-left: -3px; margin-bottom: -10px;margin-top: -14px; }
+	.announce-text-div p{ margin: -18px 0 6px; }
+	.announce-text-div a{ color: #fff; }
+	.add-on{margin-bottom: -1px;}
+	.fa-search{position: absolute;top: 11px;left: 28px;}
+	.fa-cog{ position: absolute;right: 30px;bottom: 6px;font-size: 16px;color: #fff;}
+	
+	
+	.popover-content {padding: 15px 28px;text-align: justify;}
+	.popover-title {text-align: center;}
+	.popover{top: 2px;left: 807.484px;display: block;width: 343px;min-height: 100px;padding: 10px 0;width: 252px;}
+	.announce-hr{margin-top: 22px;}
+	.popover.left {margin-left: -8px}
+	.chat-popover .popover-content {padding: 0px;text-align: justify;}
+	.popup-box
+	{
+	    display: none;
+	    position: absolute;
+	    bottom: 48px;
+	    right: 328px !important;
+	    height: 285px;
+	    background-color: rgb(237, 239, 244);
+	    width: 257px;
+	    border: 1px solid rgba(29, 49, 91, .3);
+	}
+	.chat-popup{right: 328px;}
+	.popup-box .popup-head
+	{
+	    background-color: #023e58;
+	    padding: 5px;
+	    color: white;
+	    font-weight: bold;
+	    font-size: 14px;
+	    clear: both;
+	}
+	
+	.popup-box .popup-head .popup-head-left
+	{
+	    float: left;
+	}
+	
+	.popup-box .popup-head .popup-head-right
+	{
+	    float: right;
+	    opacity: 0.5;
+	}
+	
+	.popup-box .popup-head .popup-head-right a
+	{
+	    text-decoration: none;
+	    color: inherit;
+	}
+	
+	.popup-box .popup-messages
+	{
+	    height: 76%;
+	    overflow-y: scroll;
+	}
+	.msb-reply {
+	    position: relative;
+	    margin-top: -5px;
+	    background: #f8f8f8;
+	    height: 42px;
+	}
+	.four-zero, .lc-block {
+	    box-shadow: 0 1px 11px rgba(0, 0, 0, .27);
+	}
+	.msb-reply textarea {
+	    width: 85%;
+	    font-size: 13px;
+	    border: 0;
+	    padding: 11px 7px;
+	    resize: none;
+	    height: 43px;
+	    background: 0 0;
+	    outline: none;
+	}
+	
+	.fa-paper-plane-o{
+		font-size: 16px;
+	}
+
+
+	.msb-reply button:hover {
+	    background: #f2f2f2;
+	}
+	.plane-button{
+		background-color: #f8f8f8;
+    border: none;
+    outline: none;
+    position: absolute;
+    top: 34%;
+    right: 5%;
+    font-size: 14px;
+    colr: red;
+    color: #023e58;
+	}
+
+	.img-avatar{
+		vertical-align: middle;
+		width: 40px;
+		margin-right: -5px;
+		padding: 3px;
+		border-radius: 24px;
+	}
+
+	.mf-content{
+		padding-top: 3px;
+	}
+	.mf-date{
+		    color: #2d659a;
+	}
+
+	/**/
+	.chat-user-name b{color:#000;}
+	.announce-text-div{margin-bottom: 10px; margin-top: 10px; border-bottom: 1px solid #868686; padding-bottom: 10px;}
+	.announcement-hr{margin: 0;}
+	.aside-right{min-width: 22%;}

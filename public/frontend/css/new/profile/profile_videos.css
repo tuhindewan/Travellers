@@ -1,0 +1,258 @@
+.videos_section{width: 78%;margin-left: 5px;}
+.videos_section-row{display: flex;flex-wrap: wrap;margin-right: -12px !important;margin-left: -10px !important;}
+.videos_section-row-2{display: flex;flex-wrap: wrap;margin-right: -12px !important;margin-left: -10px !important;}
+.ui-block{background-color: #fff;border-radius: 5px;border: 1px solid #e6ecf5;margin-bottom: 15px;height: 75px;}
+.videos_section-ui-block{background-color: #fff;border-radius: 5px;border: 1px solid #e6ecf5;margin-bottom: 15px;padding: 15px;}
+.videos-ui-block-title .h6{padding-bottom: 7px;}
+
+.ui-block .videos-ui-block-title:last-child {
+    border-bottom: 0; }
+
+.videos-ui-block-title {padding: 23px 25px 18px;line-height: 1;display: table;width: 100%;position: relative;border-radius: 5px 5px 0 0; }
+.videos-ui-block-title .more {padding-left: 25px;text-align: right;width: 16px; }
+.more {cursor: pointer;position: relative;transition: all .3s ease;color: #888da8;fill: #c0c4d8;}
+.videos-ui-block-title > * { margin-bottom: 0;display: table-cell;vertical-align: middle;font-size: 15px;font-weight: bold;color: #919497; }
+.align-right {text-align: right;}
+.align-right .btn {margin-left: 20px;}
+.videos-ui-block-title .btn {
+    display: inline-block;
+    margin-bottom: 0;
+}
+.btn-md-2 {
+    padding: .8rem 2.1rem;
+    font-size: 13px;
+    border-radius: 0.3rem;
+}
+.btn-upload-video {
+    color: #fff;
+    background-color: #ff5e3a;
+    border-color: #ff5e3a;
+}
+.btn-upload-video:hover {
+    background-color: #ff763a;
+    border-color: #ff763a;
+    opacity: 1;
+    color: #fff !important;
+}
+.video-item {
+    background-color: #fff;
+    border-radius: 5px;
+    border: 1px solid #e6ecf5;
+    margin-bottom: 15px;
+    width: 245px;
+    height: 245px;
+}
+.video-item .video-player {
+    margin: 0;
+    border-radius: 3px 3px 0 0;
+}
+.video-player {
+    position: relative;
+    overflow: hidden;
+    border-radius: 3px;
+    margin: 20px 0;
+}
+.video-player img {
+    width: 100%;
+}
+.video-player .play-video {
+    opacity: 0;
+}
+.play-video {
+    width: 64px;
+    height: 64px;
+    line-height: 68px;
+    background-color: rgba(255, 94, 58, 0.7);
+    border: 4px solid #fff;
+    border-radius: 100%;
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 5;
+    transition: all .3s ease;
+    outline: none;
+}
+.play-video svg {
+    fill: #fff;
+    width: 18px;
+    height: 22px;
+    margin-right: -2px;
+}
+.video-overlay.video-overlay-dark {
+    background: rgba(43, 45, 59, 0.8);
+}
+
+.video-overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(43, 45, 59, 0.2);
+    transition: all .3s ease;
+    opacity: 0;
+}
+.video-item .more {
+    position: absolute;
+    right: 25px;
+    top: 20px;
+    color: #fff;
+    fill: #fff;
+    opacity: 0;
+    z-index: 5;
+}
+.video-ui-block-content {
+    padding: 24px 23px 23px;
+}
+.video-item .title {
+    display: block;
+    margin-bottom: 0;
+}
+.video-item:hover .more, .video-item:hover .play-video, .video-item:hover .video-overlay {
+  opacity: 1; }
+.window-popup .icon-close {
+      opacity: 1;
+      margin-top: 0;
+      margin-right: 0;
+}
+.icon-close {
+    position: absolute;
+    top: -25px;
+    right: -25px;
+    color: #888da8;
+    fill: #888da8;
+}
+.icon-close svg {
+    width: 18px;
+    height: 18px;
+}
+.icon-close:hover {
+    color: #ff5e3a;
+    fill: #ff5e3a;
+}
+
+.features-video {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+.features-video .video-player {
+    width: 66.66%;
+    margin: 0;
+    display: inline-block;
+    border-radius: 3px 0 0 3px;
+}
+.features-video .video-player {
+    width: 66.66%;
+    margin: 0;
+    display: inline-block;
+    border-radius: 3px 0 0 3px;
+}
+.features-video .video-player img {
+    width: 100%;
+}
+.features-video .video-player .play-video {
+    top: 40%;
+}
+
+.video-player:hover .video-content {
+    opacity: 1;
+}
+
+.features-video .video-content {
+    left: 50%;
+    bottom: 30%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+.video-player .video-content {
+    position: absolute;
+    bottom: 25px;
+    left: 25px;
+    color: #fff;
+    z-index: 5;
+    opacity: 0;
+    transition: all .3s ease;
+    padding: 0;
+}
+.video-player .video-content .title {
+    color: #fff;
+    display: block;
+}
+.features-video .title {
+    font-weight: 400;
+    font-size: 20px;
+}
+.video-item .video-post-add-icon {
+    fill: #fff;
+    position: absolute;
+    right: 25px;
+    bottom: 25px;
+    opacity: 0;
+    transition: all .3s ease;
+}
+.video-post-add-icon {
+    fill: #c2c5d9;
+    color: #c2c5d9;
+}
+
+.video-item .content {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    opacity: 0;
+    transition: all .3s ease;
+    margin-left: 0px !important;
+}
+.video-item .content .title {
+    color: #fff;
+    display: block;
+    margin-bottom: 0;
+}
+.video-item .content time {
+    font-size: 12px;
+    color: #b6bbd7;
+}
+.video-item:hover .more, .video-item:hover .content, .video-item:hover .video-post-add-icon, .video-item:hover .video-overlay {
+    opacity: 1; }
+
+.open-video-popup-v2 .open-video-thumb {
+    width: 66.66%;
+    float: left;
+    z-index: 10;
+}
+.open-video-thumb {
+    padding: 55px 0;
+    background-color: #000;
+}
+.open-video-popup-v2 .open-video-content {
+    width: 33%;
+    float: left;
+}
+.modal.show .modal-dialog.open-video-popup-v2 {
+    display: flex !important;
+}
+.open-video-popup-v2 .post-additional-info .comments-shared {
+    margin-top: 0;
+    float: right;
+}
+.open-video-popup-v2 .video-mCustomScrollbar {
+    overflow: hidden;
+    max-height: 140px;
+}
+.video-mCustomScrollbar{overflow-y: scroll !important;}
+.video-mCustomScrollbar::-webkit-scrollbar {width: 0px;background: transparent;}
+.open-video-thumb .video-item {
+    margin: 0;
+    border-radius: 0;
+    padding: 0;
+    display: block;
+}
+
+.video-post-add-icon svg, .video-post-add-icon img {
+    margin-right: 8px;
+    width: 20px;
+    height: 18px;
+}

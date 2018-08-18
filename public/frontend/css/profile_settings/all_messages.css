@@ -1,0 +1,169 @@
+.bg-green-message{background-color: #83b541;}
+.chat-message li > * {
+    vertical-align: top;
+}
+.chat-message .author-thumb {
+    height: 36px;
+    width: 36px;
+}
+.chat-message .notification-event {
+    max-width: 75%;
+    font-size: 12px;
+    margin-top: -10px;
+}
+.chat-message .notification-friend {
+    display: block;
+}
+.padding-l-0 {
+    padding-left: 0 !important;
+}
+.padding-r-0 {
+    padding-right: 0 !important;
+}
+.chat-field {
+    border-left: 1px solid #e6ecf5;
+}
+.chat-message-field li {
+    border-bottom: none;
+}
+.chat-message-field .notification-event {
+    max-width: 90%;
+}
+.chat-message-field li:hover {
+    background-color: transparent;
+}
+.chat-message-field .notification-friend {
+    float: left;
+}
+.chat-message-field .notification-chat-message-date {
+    font-size: 10px;
+    float: right;
+    margin-top: 10px;
+}
+.chat-message-field .chat-message-item {
+    float: left;
+    margin-top: 10px;
+    font-size: 13px;
+}
+.notification-list .notification-list-date {
+    font-size: 11px;
+    display: block;
+    margin-top: 5px;
+}
+.added-photos {
+    float: left;
+    margin-top: 20px;
+}
+.added-photos img {
+    border-radius: 10px;
+    margin-right: 8px;
+    margin-bottom: 15px;
+}
+.added-photos .photos-name {
+    display: block;
+    font-size: 10px;
+}
+.chat-field .mCustomScrollbar {
+    overflow: hidden !important;
+    max-height: 450px;
+}
+.add-options-message .options-message + .options-message {
+    margin-left: 8px;
+}
+.smile-block:hover .more-dropdown {
+    opacity: 1;
+    visibility: visible;
+}
+.add-options-message .more-dropdown {
+    width: 215px;
+    top: auto;
+    bottom: 20px;
+    right: -20px;
+    padding: 8px;
+}
+.add-options-message .more-dropdown {
+    width: 215px;
+    top: auto;
+    bottom: 20px;
+    right: -20px;
+    padding: 8px;
+}
+
+
+.more-dropdown {
+    display: block;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 180px;
+    box-shadow: 0 0 34px 0 rgba(63, 66, 87, 0.1);
+    background-color: #fff;
+    border-radius: 4px;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s linear 0.3s, opacity 0.3s linear;
+    text-align: left;
+    padding: 15px 20px;
+    z-index: 5;
+}
+.add-options-message .more-dropdown li {
+    float: left;
+    padding: 4px;
+}
+.label-floating textarea.form-control {
+    padding: 1.5rem 1.1rem .2rem;
+}
+.msg_send_btn{
+	border: 0;
+	height: 0%;
+	width: 0%;
+	font-size: 15px;
+	color: #2196f3;
+	background: 0 0;
+}
+.msg_send_btn:focus{
+	outline: none;
+}
+.messenger-text{
+    height:  68px !important;
+    width: 464px !important;
+    border-left: none !important;
+    border-radius: 0 !important;
+    border-right: none !important;
+    overflow-y: visible !important;
+    padding-right: 150px !important;
+    padding-left: 10px !important;
+    padding-top: 20px !important;
+}
+.messenger-text:focus{
+    color: #495057;
+    background-color: transparent;
+    border-color: #ffc6ba;
+    outline: none;
+}
+.fa-paper-plane-o{
+	font-size: 20px!important;
+}
+.add-options-message-sidemap{
+	position: absolute;
+	left: 62%;
+	top: 87%;
+}
+.chatmessagelist{
+	max-height: 510px;
+	overflow: hidden;
+}
+.chatlistCustomScrollbar{
+	overflow-y: scroll;
+}
+.chatlistCustomScrollbar::-webkit-scrollbar {width: 0px;background: transparent;}
+
+.chat-right-section{
+	padding: 0px !important;border-bottom: none;border-top: none;border-right: none;max-height: 575px; z-index: 10;position: fixed;right: 5px;top: 55px;width: 275px;margin-top: 4px;
+    }
+.chat-right-section .more{
+	float: right;
+	font-size: 16px;
+	margin-right: 0px;
+	margin-top: 13px;
+}    

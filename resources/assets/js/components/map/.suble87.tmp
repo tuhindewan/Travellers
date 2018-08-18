@@ -1,0 +1,496 @@
+<template>
+	
+  	<data>
+  		<div id="inputSearch">
+	    	<gmap-autocomplete :value="sharePlace" @place_changed="setPlace" class="form-control map_search">
+	    	</gmap-autocomplete>
+	    	
+	    </div>
+
+  		<gmap-map :center="center" :zoom="zoom" :options="{minZoom: 2,streetViewControl: false, fullscreenControl: false, scrollwheel: true, mapTypeControl: false, styles: styles}" style="width: 100%; height: 100%">
+		    <gmap-info-window :options="infoOptions" :position="infoWindowPos" :opened="infoWinOpen" @closeclick="infoWinOpen=false">
+		        {{infoContent}}
+		    </gmap-info-window>
+		    <gmap-cluster><gmap-marker :key="i" v-for="(m,index) in markers" :position="m.position" :clickable="true" @click="getLocation(m,index)" @mouseover="toggleInfoWindow(m,index)"></gmap-marker></gmap-cluster>
+		  </gmap-map>
+
+
+  		<div>
+        <router-link :to="{ name: 'plans' }" @click.native="changeMap('plans')">
+  			  <img class="plan-image" src="public/frontend/img/plans.png" alt="">
+  			  <a class="semi-transparent-button">Plans</a>
+        </router-link>
+  		</div>
+  		<div>
+        <router-link :to="{ name: 'suggestions' }" @click.native="changeMap('suggestions')">
+  			 <img class="suggestions-image" src="public/frontend/img/suggestions.png" alt="">
+  			 <a class="suggestions-transparent-button">Suggestions</a>
+        </router-link>
+  		</div>
+  		<div>
+        <router-link :to="{ name: 'experiences' }" @click.native="changeMap('')">
+  			 <img class="experiences-image" src="public/frontend/img/experiences.png" alt="">
+  			 <a class="experiences-transparent-button">Experiences</a>
+        </router-link>
+  		</div>
+  		<div>
+        <router-link :to="{ name: 'questions' }" @click.native="changeMap('questions')">
+  			 <img class="questions-image" src="public/frontend/img/questions.png" alt="">
+  			 <a class="questions-transparent-button">Questions</a>
+        </router-link>
+  		</div>
+      <!-- <div>
+        <router-view></router-view>
+      </div> -->
+  	</data>
+</template>
+
+<script>
+import VueGoogleMaps from 'vue2-google-maps';
+import VueRouter from 'vue-router';
+  const router = new VueRouter({
+        mode: 'history',
+        routes: [
+            {
+                path: '/travel-project'+'/',
+                name: 'experiences',
+                //component: Experiences,
+            },
+            {
+                path: '/travel-project'+'/plans',
+                name: 'plans',
+                //component: Plans,
+            },
+            
+            {
+                path: '/travel-project'+'/suggestions',
+                name: 'suggestions',
+                //component: Suggestions,
+            },
+            {
+                path: '/travel-project'+'/questions',
+                name: 'questions',
+                //component: Questions,
+            },
+        ],
+        linkActiveClass:'active'
+    });
+export default {
+    
+    data () {
+    	
+        return {
+            url:$("#base_url").val(),
+            zoom:2,
+            //position:{},
+            center: {
+              lat: 33.223191,
+              lng: 43.679291000000035
+            },
+            infoContent: '',
+            infoWindowPos: {
+                lat: 0,
+                lng: 0
+            },
+            infoWinOpen: false,
+            currentMidx: null,
+            //optional: offset infowindow so it visually sits nicely on top of our marker
+            infoOptions: {
+                pixelOffset: {
+                    width: 0,
+                    height: -35
+                }
+            },
+
+            markers: [],
+            styles:[],
+            places: [],
+            icons:[],
+            currentPlace: null
+        }
+      },
+      router,
+      methods:{
+        getLocation(markers,idx){
+          
+          if(markers.id){
+            var lat = markers.position.lat;
+            var lng = markers.position.lng;
+            var placeId = markers.id;
+            var placeName = '';
+            if(this.$route.fullPath=='/travel-project/suggestions'){
+              placeName  = '/suggestions';
+            }else if(this.$route.fullPath=='/travel-project/plans'){
+              placeName  = '/plans';
+            }else if(this.$route.fullPath=='/travel-project/questions'){
+              placeName  = '/questions';
+            }else{
+              placeName  = '';
+            }
+            window.location.href=this.url+"/place/"+placeId+placeName;  
+          }else{
+            
+          }
+
+          
+          
+        },
+
+         
+        setPlace(place) {
+          this.currentPlace = place;
+          
+          if (this.currentPlace) {
+            const marker = {
+              lat: this.currentPlace.geometry.location.lat(),
+              lng: this.currentPlace.geometry.location.lng()
+            };
+            //this.markers.push({ position: marker,infoText:this.currentPlace.formatted_address,icon:this.currentPlace.icon});
+            //this.markers.push({ infoText: this.currentPlace.adr_address});
+            this.places.push(this.currentPlace);
+            //this.icons.push(this.icon);
+            this.center = marker;
+            this.currentPlace = null;
+            this.zoom=13;
+          }
+        },
+        
+        toggleInfoWindow(marker,idx){
+          this.infoWindowPos = marker.position;
+            this.infoContent = marker.infoText;
+
+            //check if its the same marker that was selected if yes toggle
+            if (this.currentMidx == idx) {
+              this.infoWinOpen = !this.infoWinOpen;
+            }
+            //if different marker set infowindow to open and reset current marker index
+            else {
+              this.infoWinOpen = true;
+              this.currentMidx = idx;
+
+            }
+        },
+        changeMap(e){
+          this.typeWisePlace = e;
+          if(e=='plans'){
+                axios.get(this.url+'/public-wise-markers'+'/3').then( response=> {
+                    
+                    this.markers = response.data;
+                });
+          }else if(e=='suggestions'){
+                axios.get(this.url+'/public-wise-markers'+'/1').then( response=> {
+                    
+                    this.markers = response.data;
+                });
+
+          }else if(e=='questions'){
+                axios.get(this.url+'/public-wise-markers'+'/2').then( response=> {
+                    
+                    this.markers = response.data;
+                    
+                });
+
+          }else{
+                axios.get(this.url+'/public-wise-markers'+'/4').then( response=> {
+                    
+                    this.markers = response.data;
+                });
+            }
+        },
+
+        geolocate: function() {
+          navigator.geolocation.getCurrentPosition(position => {
+            // this.center = {
+            //   lat: position.coords.latitude,
+            //   lng: position.coords.longitude
+            // };
+            //console.log(this.center);
+          });
+        }  
+          
+      },
+      
+      
+
+    mounted(){
+      //console.log(this.$route.fullPath);
+      this.geolocate();
+      var place = 0;
+      if(this.$route.fullPath=='/travel-project/suggestions'){
+        place  = 1;
+      }else if(this.$route.fullPath=='/travel-project/plans'){
+        place  = 3;
+      }else if(this.$route.fullPath=='/travel-project/questions'){
+        place  = 2;
+      }else{
+        place  = 4;
+      }
+      //var place  = ;
+      axios.get(this.url+'/public-wise-markers'+'/'+place).then( response=> {
+          
+          this.markers = response.data;
+      });
+      this.styles=
+            [
+              {
+                  "elementType": "geometry",
+                  "stylers": [
+                    {
+                      "color": "#1d2c4d"
+                    }
+                  ]
+              },
+              {
+                  "elementType": "labels.text.fill",
+                  "stylers": [
+                    {
+                        "color": "#8ec3b9"
+                    }
+                  ]
+              },
+              {
+                  "elementType": "labels.text.stroke",
+                  "stylers": [
+                    {
+                        "color": "#1a3646"
+                    }
+                  ]
+              },
+              {
+                  "featureType": "administrative.country",
+                  "elementType": "geometry.stroke",
+                  "stylers": [
+                    {
+                        //"color": "#00bfff",
+                        //"color": "#00ffff",
+                        "color": "#6495ed",
+                    }
+                  ]
+              },
+              {
+                  "featureType": "administrative.land_parcel",
+                  "elementType": "geometry.fill",
+                  "stylers": [
+                    {
+                        "weight": 8
+                    }
+                ]
+              },
+              {
+                "featureType": "administrative.land_parcel",
+                "elementType": "labels.text.fill",
+                "stylers": [
+                  {
+                    "color": "#64779e"
+                  }
+                ]
+              },
+              {
+                "featureType": "administrative.province",
+                "elementType": "geometry.stroke",
+                "stylers": [
+                  {
+                    "color": "#4b6878"
+                  }
+                ]
+              },
+              {
+                "featureType": "landscape.man_made",
+                "elementType": "geometry.stroke",
+                "stylers": [
+                  {
+                    "color": "#334e87"
+                  }
+                ]
+              },
+              {
+                "featureType": "landscape.natural",
+                "elementType": "geometry",
+                "stylers": [
+                  {
+                    "color": "#023e58"
+                  }
+                ]
+              },
+              {
+                "featureType": "poi",
+                "elementType": "geometry",
+                "stylers": [
+                  {
+                    "color": "#283d6a"
+                  }
+                ]
+              },
+              {
+                "featureType": "poi",
+                "elementType": "labels.text.fill",
+                "stylers": [
+                  {
+                    "color": "#6f9ba5"
+                  }
+                ]
+              },
+              {
+                "featureType": "poi",
+                "elementType": "labels.text.stroke",
+                "stylers": [
+                  {
+                    "color": "#1d2c4d"
+                  }
+                ]
+              },
+              {
+                "featureType": "poi.park",
+                "elementType": "geometry.fill",
+                "stylers": [
+                  {
+                    "color": "#023e58"
+                  }
+                ]
+              },
+              {
+                "featureType": "poi.park",
+                "elementType": "labels.text.fill",
+                "stylers": [
+                  {
+                    "color": "#3C7680"
+                  }
+                ]
+              },
+              {
+                "featureType": "road",
+                "stylers": [
+                  {
+                    "visibility": "off"
+                  }
+                ]
+              },
+              {
+                "featureType": "road",
+                "elementType": "geometry",
+                "stylers": [
+                  {
+                    "color": "#304a7d"
+                  }
+                ]
+              },
+              {
+                "featureType": "road",
+                "elementType": "labels.text.fill",
+                "stylers": [
+                  {
+                    "color": "#98a5be"
+                  }
+                ]
+              },
+              {
+                "featureType": "road",
+                "elementType": "labels.text.stroke",
+                "stylers": [
+                  {
+                    "color": "#1d2c4d"
+                  }
+                ]
+              },
+              {
+                "featureType": "road.highway",
+                "elementType": "geometry",
+                "stylers": [
+                  {
+                    "color": "#2c6675"
+                  }
+                ]
+              },
+              {
+                "featureType": "road.highway",
+                "elementType": "geometry.stroke",
+                "stylers": [
+                  {
+                    "color": "#255763"
+                  }
+                ]
+              },
+              {
+                "featureType": "road.highway",
+                "elementType": "labels.text.fill",
+                "stylers": [
+                  {
+                    "color": "#b0d5ce"
+                  }
+                ]
+              },
+              {
+                "featureType": "road.highway",
+                "elementType": "labels.text.stroke",
+                "stylers": [
+                  {
+                    "color": "#023e58"
+                  }
+                ]
+              },
+              {
+                "featureType": "transit",
+                "elementType": "labels.text.fill",
+                "stylers": [
+                  {
+                    "color": "#98a5be"
+                  }
+                ]
+              },
+              {
+                "featureType": "transit",
+                "elementType": "labels.text.stroke",
+                "stylers": [
+                  {
+                    "color": "#1d2c4d"
+                  }
+                ]
+              },
+              {
+                "featureType": "transit.line",
+                "elementType": "geometry.fill",
+                "stylers": [
+                  {
+                    "color": "#283d6a"
+                  }
+                ]
+              },
+              {
+                "featureType": "transit.station",
+                "elementType": "geometry",
+                "stylers": [
+                  {
+                    "color": "#3a4762"
+                  }
+                ]
+              },
+              {
+                "featureType": "water",
+                "elementType": "geometry",
+                "stylers": [
+                  {
+                    "color": "#0e1626"
+                  }
+                ]
+              },
+              {
+                "featureType": "water",
+                "elementType": "labels.text.fill",
+                "stylers": [
+                  {
+                    "color": "#4e6d70"
+                  }
+                ]
+              }
+            ];
+    }
+  }
+</script>
+
+
+<style>
+#inputSearch{width: 23%; z-index: 10; position: absolute; left: 5px; top: 5px; background: transparent; color: #fff;}  
+#inputSearch input{background: transparent; color: #fff; }  
+.map_search::-webkit-input-placeholder {color: #fff;}
+.map_search::-moz-placeholder {color: #fff; }
+  	</style>

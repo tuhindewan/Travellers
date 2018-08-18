@@ -1,0 +1,24 @@
+ul.nav li.dropdown > ul.dropdown-menu { margin-top: 0;}
+.navbar-form .form-control {width: 200px;padding: 5px 15px;height: 30px;-webkit-border-radius: 30px;-moz-border-radius: 30px;border-radius: 30px;
+    padding-right: 30px;
+}
+.navbar-xs { min-height:40px; border-radius:0} 
+.navbar-xs .navbar-brand{ padding: 2px 8px;font-size: 14px;line-height: 14px; } 
+.navbar-xs .navbar-nav > li > a { border-right:1px solid #ddd; padding-top: 2px; padding-bottom: 2px; line-height: 16px }
+.navbar-search{position: absolute;top: 8px;left: -1px;}
+ .notification-list.friend-requests .notification-event {
+    width: 60%;
+}
+.notification-list .notification-event {
+    padding-left: 15px;
+}
+
+.request-thum img{border-radius: 50%; width: 50px;}
+.request-event{margin-top: 10px;}
+.request-event a{font-size: 13px; text-decoration: none}
+
+.feed_notification{}
+.feed_notification:last-child{border-bottom: 0px solid #ccc; margin-bottom: 0px; padding-bottom: 0px;}
+
+.feed_notify_box{border-bottom: 1px solid #ededed; padding: 5px 0;}
+.notification-list{list-style: none;}

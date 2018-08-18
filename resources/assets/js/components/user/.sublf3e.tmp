@@ -1,0 +1,208 @@
+<template>
+	<div>
+		<div class="profile_container_body" id="map-timeline">
+			<div class="row">
+				<div class="col-md-6 col-sm-12 col-xs-12 hidden-sm hidden-xs">
+					<div class="profile_left_section " style="margin-top: 6px;">
+						<div class="hidden-sm hidden-xs">
+                            <userMap :markers="markers" :uName="uName"></userMap>
+                        </div>    
+
+						<div>
+							<router-link :to="{ name: 'experiences' }" @click.native="changeMap('')">
+				                <a><img class="timeline-experiences-image" src="public/frontend/img/experiences.png" alt=""></a>
+								<a class="timeline-experiences-transparent-button active">Experiences</a>
+				            </router-link>
+							
+						</div>
+						<div>
+							<router-link :to="{ name: 'plans' }" @click.native="changeMap('plans')">
+				                <a><img class="timeline-plan-image" src="public/frontend/img/plans.png" alt=""></a>
+								<a class="timeline-semi-transparent-button">Plans</a>
+				            </router-link>
+							
+						</div>
+						<div>
+							<router-link :to="{ name: 'suggestions' }" @click.native="changeMap('suggestions')">
+				                <a><img class="timeline-suggestions-image" src="public/frontend/img/suggestions.png" alt=""></a>
+								<a class="timeline-suggestions-transparent-button">Suggestions</a>
+				            </router-link>
+							
+						</div>
+						
+						<div>
+							<router-link :to="{ name: 'questions' }" @click.native="changeMap('questions')">
+	                			<a><img class="timeline-questions-image" src="public/frontend/img/questions.png" alt=""></a>
+								<a class="timeline-questions-transparent-button">Questions</a>
+				            </router-link>
+							
+						</div>
+					</div>	
+				</div>
+				<div class="col-md-6 sticky1 col-sm-12 col-xs-12" style="padding-right: 23px;">
+					<div class="row timeline-row-newsletter">
+						<div class="newsletter-scroll">
+							<div class="newsletter-scroll-row">
+								<!-- <a href="" data-toggle="modal" data-target="#myModal"><textarea class="form-control timeline_set_box_panel show-dialog" id="" rows="3" placeholder="What's on your mind?" style="z-index: -1;"></textarea></a> -->
+                                <a class="show-dialog-pop" id="post-com-ed" onClick="showPostModal()"><textarea class="form-control timeline_set_box_panel show-dialog" id="" rows="3" placeholder="What's on your mind?" style="z-index: -1;"></textarea></a>
+                                
+                                <createPost></createPost>
+
+								<!-- @include('frontend.common.post_section') -->
+							</div>
+                            
+
+							<div class="news-scetion">
+					            <router-view :posts="posts" :authInfo="authInfo"></router-view>
+					        </div>
+						    
+						</div>
+					</div>	
+				</div>
+			</div>
+				
+		</div>	
+	</div>
+</template>
+
+<script>
+	import userMap from './UserMap.vue';
+	//import userPostSection from './UserPostSection.vue';
+    import createPost from './../post/CreatePost.vue';
+	import Plans from './../feed/Plans.vue';
+    import Experiences from './../feed/Experiences.vue';
+    import Suggestions from './../feed/Suggestions.vue';
+    import Questions from './../feed/Questions.vue';
+
+	import VueRouter from 'vue-router';
+	const router = new VueRouter({
+        mode: 'history',
+        routes: [
+            
+            {
+                path: '/travel-project/'+$("#uName").val()+'&timeline=plans',
+                name: 'plans',
+                component: Plans,
+            },
+            
+            {
+                path: '/travel-project/'+$("#uName").val()+'&timeline=suggestions',
+                name: 'suggestions',
+                component: Suggestions,
+            },
+            {
+                path: '/travel-project/'+$("#uName").val()+'&timeline=questions',
+                name: 'questions',
+                component: Questions,
+            },
+            {
+                path: '/travel-project/'+$("#uName").val(),
+                name: 'experiences',
+                component: Experiences,
+            },
+        ],
+        linkActiveClass:'active'
+    });
+
+	export default {
+
+		props:['userInfo','authInfo'],
+        data() {
+
+            return {
+                url:$("#base_url").val(),
+                userProfilePath: $("#base_url").val()+"/images/users/",
+                authId:$("#authId").val(),
+                posts:[],
+                uName:$("#uName").val(),
+                uId:$("#uId").val(),
+                typeWisePlace:'',
+                markers:[]
+                 
+                
+            }
+        },
+        router,
+        components:{
+        	userMap,createPost
+        },
+        methods:{
+        	scrollToEnd: function() {
+                var container = document.querySelector("#content-chat");
+                var scrollHeight = container.scrollHeight;
+                container.scrollTop = scrollHeight;
+            },
+        	formatTime (time) {
+                let previousTime = moment(time,'YYYY-MM-DD HH:mm:ss').format('x');
+                let timeDifference = moment(previousTime,'x').fromNow();
+                return timeDifference;
+            } ,
+            getPosts () {
+                this.uId=$("#uId").val(),
+                //get all post
+                axios.get(this.url+'/user-wise-post/'+this.uId).then( response=> {
+                    this.posts = response.data;
+
+                    this.$nextTick(() => {
+                        this.scrollToEnd();
+                    });
+                });
+                
+                
+            },
+
+            changeMap(e){
+            	this.typeWisePlace = e;
+
+            	if(e=='plans'){
+                    axios.get(this.url+'/user-wise-markers/'+this.uId+'/3').then( response=> {
+                        
+                        this.markers = response.data;
+                    });
+            	}else if(e=='suggestions'){
+                    axios.get(this.url+'/user-wise-markers/'+this.uId+'/1').then( response=> {
+                        
+                        this.markers = response.data;
+                    });
+
+            	}else if(e=='questions'){
+                    axios.get(this.url+'/user-wise-markers/'+this.uId+'/2').then( response=> {
+                        
+                        this.markers = response.data;
+                    });
+
+            	}else{
+                    axios.get(this.url+'/user-wise-markers/'+this.uId+'/4').then( response=> {
+                        
+                        this.markers = response.data;
+                    });
+                }
+            }
+            
+            
+        },
+        
+        
+
+        mounted(){
+            //console.log(this.$route.fullPath);
+            var place = 0;
+            if(this.$route.fullPath=='/travel-project/'+this.uName+'&timeline=suggestions'){
+                place  = 1;
+            }else if(this.$route.fullPath=='/travel-project/'+this.uName+'&timeline=plans'){
+                place  = 3;
+            }else if(this.$route.fullPath=='/travel-project/'+this.uName+'&timeline=questions'){
+                place  = 2;
+            }else{
+                place  = 4;
+            }
+            axios.get(this.url+'/user-wise-markers/'+this.uId+'/'+place).then( response=> {
+                
+                this.markers = response.data;
+            });
+            
+	    	this.getPosts();
+	    	//this.typeWisePlace=this.$route.path;  
+	    }
+    }
+</script>

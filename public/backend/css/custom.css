@@ -1,0 +1,15 @@
+
+
+
+.change-message{color: red; text-align: center;}
+
+.chosen-container, .chosen-container-single, .chosen-with-drop, .chosen-container-active{width: 100% !important; text-align: left;}
+/* role page start */
+.add_more{text-align: center; margin:10px;}
+
+/* user admin section start */
+.set_role{border-radius: 5px; border:1px solid #0a8c8c; background: #00acac; margin: 0 10px; padding: 5px 0; color: #f7fbfc;}
+
+
+.si_post_image img{width: 150px; height: 100%;  margin: 0 auto;}
+

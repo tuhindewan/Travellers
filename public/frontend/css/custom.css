@@ -1,0 +1,202 @@
+*{margin:0; padding: 0; }
+/*a, p, b, h1, h2, h3, h4, h5, h6, span, small, button {text-transform: capitalize;}*/
+a{cursor: pointer;}
+option{text-transform: capitalize;}
+
+.no_padding{padding:0px !important;}
+.no_margin{margin:0px !important;}
+.capitalize {text-transform: capitalize !important;}
+.uppercase {text-transform: uppercase !important;}
+.unset {text-transform: unset !important;}
+.transform-none {text-transform: none !important;}
+.font11{font-size: 11px !important;}
+.font12{font-size: 12px !important;}
+.font13{font-size: 13px !important;}
+.font14{font-size: 14px !important;}
+.font16{font-size: 16px !important;}
+.inline{display: inline !important;}
+.block{display: block !important;}
+/* sing up page*/
+.setting_actions{float: right; border: 1px solid #ccc; width: 48%; height: 235px;}
+.setting_actions p{margin: 30%; padding: 3px 23px; border: 2px solid #000; background: #f5f4f4;}
+.invite_friend_section{border: 1px solid #ccc; width: 48%; height: 235px; margin: 0 auto;}
+
+/* home page */
+.home_main_container{width: 100%; overflow: hidden; height: 100%; position: absolute; top: 0; left: 0;}
+.home_container_top{width: 100%; height: 100%; position: relative;}
+.container_top_bar{position: absolute; top: 0; left: 0;  width: 100%; height: 50px;}
+.home_content_section{}
+.container_top_bar{}
+.container_side_bar{}
+
+.experience_section{width: 100%; overflow: hidden; position: relative;}
+.experience_tab_list li{float: none;}
+.experience_tab_list>li.active>a, .experience_tab_list>li.active>a:focus, .experience_tab_list>li.active>a:hover {background: #ddd;}
+
+.tabs-left > .nav-tabs { border-bottom: 0;}
+
+.tab-content > .tab-pane,
+.pill-content > .pill-pane { display: none;}
+
+.tab-content > .active,
+.pill-content > .active {display: block;}
+
+.tabs-left > .nav-tabs > li { float: none;}
+
+.tabs-left > .nav-tabs > li > a { min-width: 74px; margin-right: 0; margin-bottom: 3px;}
+
+.tabs-left > .nav-tabs { float: left; margin-right: 19px; border-right: 1px solid #ddd;}
+
+.tabs-left > .nav-tabs > li > a {margin-right: -1px; -webkit-border-radius: 4px 0 0 4px; -moz-border-radius: 4px 0 0 4px; border-radius: 4px 0 0 4px;}
+
+.tabs-left > .nav-tabs > li > a:hover,
+.tabs-left > .nav-tabs > li > a:focus { border-color: #eeeeee #dddddd #eeeeee #eeeeee;}
+
+.tabs-left > .nav-tabs .active > a,
+.tabs-left > .nav-tabs .active > a:hover,
+.tabs-left > .nav-tabs .active > a:focus { border-color: #ddd transparent #ddd #ddd; border-right-color: #ffffff;}
+
+.min_profile_home{width: 32px !important; height: auto !important; border-radius: 50%; margin-right: 15px; border: 1px solid #737a88; padding: 3px;}
+.home_profile_overlay{position: absolute; background: #c7c7c7; top: 0; width: 100%; height: 100%; left: 0; opacity: 0.3; z-index: -1;}
+.home_top_panel input::-webkit-input-placeholder { /* Chrome/Opera/Safari */ color: #fff;}
+.home_top_panel input::-moz-placeholder { /* Firefox 19+ */ color: #fff;}
+.home_top_panel input:-ms-input-placeholder { /* IE 10+ */ color: #fff;}
+.home_top_panel input:-moz-placeholder { /* Firefox 18- */ color: #fff;}
+.home_top_panel textarea::-webkit-input-placeholder{ /* Firefox 18- */ color: #fff;}
+.home_set_box_panel{margin: 5px 0; background: transparent; position: relative;z-index: 11; color: #fff; border: 0; cursor: text;}
+.home_search_overlay{width: 100%; height: 77%; position: absolute; background: #c7c7c7; opacity: 0.3; top: 0; left: 0; z-index: 1; margin: 5px 0; border-radius: 5px;}
+.show-dialog{border: 1px solid #bfcbce;}
+.home_post_overlay{width: 100%; height:88%; position: absolute; background: #c7c7c7; opacity: 0.3; top: 0; left: 0; z-index: 1; margin: 5px 0; border-radius: 5px; border: 1px solid #427084;}
+.home_navigition{position: relative;}
+.home_navbar{margin-bottom: 0;}
+.scroll-bottom i{color: #fff; position: absolute; bottom: 10px; right: 45px; font-size: 30px;z-index: 111;}
+.scroll_to_top i{color: #000; position: absolute; bottom: 20px; right: 45px; font-size: 30px;z-index: 111;}
+
+.dl-menuwrapper ul{position: relative; }
+.dl-menuwrapper ul li a{border-bottom: 1px solid #707580; text-align: left;}
+.dl-menuwrapper ul li a.last{border: 0;}
+.dl-menuwrapper ul li a:hover{text-decoration: none;}
+.home_submenu_overlay{position: absolute; top:0; left: 0; background: #c7c7c7; width: 100%; height: 100%;    opacity: 0.3; border-radius: 5px; z-index: -1;}
+/*  */
+.navigation{width: 100%; overflow: hidden;}
+
+/* terms page */
+.terms_nav_section{width: 100%; background: #000; height: 100%;}
+.terms_top_logo{width: 40px; height: auto; margin:10px 0;}
+.terms_top_logo img{width: 100%; height: 100%;}
+.terms_contant_section{width: 100%; overflow: hidden; margin:10px 0;}
+
+/* user profile section */
+.profile_info_section{width: 100%; overflow: hidden; margin-top:60px; margin-bottom: 5px;}
+.user_cover_file{width: 100%; height: 250px;}
+.user_cover_file img{width: 100%; height: 100%;}
+
+.user_info{}
+.user_profile_section{width: 100px;}
+.user_profile_section img{width: 100%; height: auto;}
+.user_info{width: 100%; overflow: hidden; text-align: center;margin: 10px 0;}
+.user_info p{margin: 0;}
+
+/* map page */
+.map_section_container{width: 100%; height: 500px;}
+.map_section_container{width: 100%; overflow: hidden; }
+.map_activities{width: 100%; overflow: hidden;}
+/* company page */
+.company_service_slide{background: #e7e9ef; width: 100%; height: 100%;padding: 10px; border-radius: 6px;}
+.company_activity_section{width: 100%; overflow: hidden;}
+.company_basic_info{width: 100%; overflow: hidden;}
+.company_logo{width: 100%; overflow: hidden;}
+.company_logo img{width: 100%; height: auto;}
+.company_activity_section .top{width:100%; height:100%; background: #e7e9ef; padding: 10px; padding-bottom: 0; border-radius: 6px; margin-bottom: 10px;}
+.top .panel{margin-bottom: 10px;}
+#company-info{position:fixed;}
+#company_contant{margin-left: 16.66%; position: relative;top: 0;overflow: hidden;}
+
+/* user verification page */
+.user_verifi_content{width: 100%; height: 100%; position: absolute; top: 0;}
+.user_verifi_content .map-bg{width: 100%; height: 100%;}
+.user_verification_section{margin-top: 25%; margin-bottom: 20px; width: 100%; overflow: hidden;}
+
+/* user post section view page */
+.single_post_top {width: 100%; height: 44px;}
+.single_post_top .user_profile{width: 12%; float: left;}
+.single_post_top .user_profile img{width: 40px; height: auto;border-radius: 50%;}
+.single_post_top .user_info{width: 80%; float: left; text-align: left; margin:0; text-transform: capitalize;}
+.single_post_top .user_info .show_time{color: #999; font-size: 12px;}
+.single_post_top .post_changeable{width: 8%; float: left;}
+
+.single_post_body{width: 100%; overflow: hidden; margin-top: 10px;}
+.single_post_body .post_image{width: 100%;height: auto;}
+.single_post_body .post_image img{width: 100%;height: 100%;}
+
+/* post page */
+
+.post_description{font-size: 14px;}
+
+.user_img img{width: 45px;height: auto; border-radius: 50%;}
+.popup-user{margin-bottom: 5px; border-bottom: 1px solid #ccc; padding-bottom: 5px;}
+.popup-user:last-child{margin-bottom: 5px; border-bottom: 0px solid #ccc; padding-bottom: 5px;}
+.user_name{margin-top: 10px;}
+.user_popup{height: 300px; overflow-y: scroll; }
+.post_comment_body{display: inline;}
+
+.inner_buttons .checkbox{margin-right:10px; display:inline;}
+.checkbox label:after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+.checkbox .cr {
+  position: relative;
+  display: inline-block;
+  border: 1px solid #a9a9a9;
+  border-radius: .25em;
+  width: 1.3em;
+  height: 1.3em;
+  float: left;
+  margin-right: .5em;
+}
+
+.checkbox .cr .cr-icon {
+  position: absolute;
+  font-size: .8em;
+  line-height: 0;
+  top: 50%;
+  left: 15%;
+}
+
+.checkbox label input[type="checkbox"] {
+  display: none;
+}
+
+.checkbox label input[type="checkbox"]+.cr>.cr-icon {
+  opacity: 0;
+}
+
+.checkbox label input[type="checkbox"]:checked+.cr>.cr-icon {
+  opacity: 1;
+}
+
+.checkbox label input[type="checkbox"]:disabled+.cr {
+  opacity: .5;
+}
+
+.user-report{font-size: 19px !important; color: #fff !important; padding: 0px 6px;}
+.user_edit_btn:after { border-bottom: 11px solid #07415a;}
+.user_edit_btn { top: 28px;}
+.confirm_message{width: 100%; height: auto; padding: 20px;}
+.img_message{width: 65px; margin: 15px auto; height: auto;}
+.img_message img{width: 100%;}
+
+
+
+
+
+
+
+
+
+
+
+

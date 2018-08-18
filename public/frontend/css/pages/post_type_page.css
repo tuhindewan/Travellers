@@ -1,0 +1,49 @@
+.suggestion-button{width: 7.6%;height: auto;position: absolute;top: 26.5%;margin-left: 32px;}
+.experience-button{width: 7.6%;height: auto;position: absolute;top: 33%;margin-left: 32px;}
+.question-button{width: 6.6%;height: auto;position: absolute;top: 39.5%;margin-left: 32px;}
+.semi-transparent-button { display: block;box-sizing: border-box;padding: 3px;width: 4%;max-width: 200px;background: #fff;background: rgba(255, 255, 255, 0.3);color: #fff;text-align: center;text-decoration: none; letter-spacing: 1px;transition: all 0.3s ease-out;position: absolute; top: 25.5%; margin-left: 60px;border-radius: 12px;height: 25px;
+	}
+	.semi-transparent-button:hover,
+	.semi-transparent-button:focus,
+	.semi-transparent-button:active {
+	  transition: all 0.5s ease-in;
+	  text-decoration: none;
+	  color: white;
+	  background: rgba(255, 255, 255, 0.6);
+	}
+	.suggestions-transparent-button {display: block;box-sizing: border-box;padding: 3px;width: 7.5%;max-width: 200px;background: #fff;background: rgba(255, 255, 255, 0.3);color: #fff;text-align: center;text-decoration: none;letter-spacing: 1px;transition: all 0.3s ease-out;position: absolute;top: 31%;margin-left: 60px;border-radius: 12px;height: 25px;
+	}
+	.suggestions-transparent-button:hover,
+	.suggestions-transparent-button:focus,
+	.suggestions-transparent-button:active {
+	  transition: all 0.5s ease-in;
+	  text-decoration: none;
+	  color: white;
+	  background: rgba(255, 255, 255, 0.6);
+	}
+	.experiences-transparent-button {display: block; box-sizing: border-box;padding: 3px; background: #fff;width: 7.5%;max-width: 200px;background: rgba(255, 255, 255, 0.3);color: #fff;text-align: center;text-decoration: noneletter-spacing: 1px;transition: all 0.3s ease-out;position: absolute;top: 20%;margin-left: 60px;border-radius: 12px!important;height: 25px;
+
+
+	}
+	.experiences-transparent-button:hover,
+	.experiences-transparent-button:focus,
+	.experiences-transparent-button:active {
+	  transition: all 0.5s ease-in;
+	  text-decoration: none;
+	  color: white;
+	  background: rgba(255, 255, 255, 0.6);
+	}
+	.questions-transparent-button {display: block;box-sizing: border-box;padding: 3px;width: 6.4%;max-width: 200px; background: #fff;background: rgba(255, 255, 255, 0.3);color: #fff;text-align: center;text-decoration: none;letter-spacing: 1px;transition: all 0.3s ease-out;position: absolute;top: 36.5%;margin-left: 60px;border-radius: 12px;height: 25px;
+	}
+	.questions-transparent-button:hover,
+	.questions-transparent-button:focus,
+	.questions-transparent-button:active {
+	  transition: all 0.5s ease-in;
+	  text-decoration: none;
+	  color: white;
+	  background: rgba(255, 255, 255, 0.6);
+	}
+	.plan-image{position: absolute;top: 26%;background-color: white;border-radius: 42px;width: 21px;margin-left: 33px;padding: 2px; }
+	.suggestions-image{position: absolute;top: 31.4%;background-color: white;border-radius: 42px;width: 21px;margin-left: 33px;padding: 2px; }
+	.experiences-image{ position: absolute;top: 20.3%;background-color: white;border-radius: 42px;width: 21px;margin-left: 33px;padding: 2px;}
+	.questions-image{position: absolute;top: 37%;background-color: white;border-radius: 42px;width: 21px;margin-left: 33px;padding: 2px;}

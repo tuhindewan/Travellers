@@ -1,0 +1,54 @@
+
+.btn-add{background-color: #9a9fbf;color: #fff;width: 65px;}
+.btn-add:hover{background-color: #3367d6;border-color: #3367d6;opacity: 1;color: #fff;}
+.btn-save-change{background-color: #ff5e3a;color: #fff !important;}
+.btn-change:hover{background-color: #ff763a;}
+.about-form-control:focus {color: #495057;background-color: transparent;border-color: #ffc6ba !important;outline: none;}
+.about_section .nav>li>a:focus, .about_section .nav>li>a:hover {color: #242a30 !important;background: #fafafa;}
+.about_section .nav-tabs>li.active>a {color: #242a30 !important;}
+.about-ui-block-title > * {margin-bottom: 0;display: table-cell;vertical-align: middle;}
+.about-ui-block-title {padding: 23px 25px 18px;line-height: 1;border-bottom: 1px solid #e6ecf5;border-top: 1px solid #e6ecf5;display: table;width: 100%;position: relative;border-radius: 5px 5px 0 0;}
+.about-update-header-photo {width: 500px;height: 350px;}
+.about-ui-block {background-color: #fff;border-radius: 5px;border: 1px solid #e6ecf5;margin-bottom: 15px;}
+.about-window-popup .about-icon-close {opacity: 1;margin-top: 0;margin-right: 0;}
+.about-icon-close {position: absolute;top: -25px;right: -25px;color: #888da8;fill: #888da8;}
+.about-icon-close svg {width: 18px;height: 18px;}
+.about-icon-close:hover {color: #ff5e3a;fill: #ff5e3a;}
+.modal.show .modal-dialog {display: block !important;}
+.add-plus-circle{    position: absolute;right: 30px;bottom: 6px;font-size: 20px;color: #808487;}
+.about-notification-list .notification-date {font-size: 11px;display: block;margin-top: 5px;}
+.about-notification-list .more svg + svg {margin-left: 5px;}
+.about-notification-list .more {position: absolute;right: 10px;top: 5px;font-size: 10px;color: #d6d9e6;opacity: 0;}
+.about-notification-list .selectize-dropdown-content > *:hover .more, .about-notification-list li:hover .more {opacity: 1;}
+.about-notification-list {margin-bottom: 0;list-style: none;}
+.about-notification-list .selectize-dropdown-content > *, .about-notification-list li {padding: 25px;border-bottom: 1px solid #e6ecf5;display: block;position: relative;transition: all .3s ease;}
+.about-notification-list .selectize-dropdown-content > *:hover, .about-notification-list li:hover {background-color: #fafbfd;}
+.about-notification-list .visit-place-thumb {height: 40px;width: 40px;}
+.about-notification-list .selectize-dropdown-content > * > *, .about-notification-list li > * {margin-bottom: 0;display: inline-block;vertical-align: middle;}
+.about-notification-list .notification-event {padding-left: 15px;}
+.about-notification-list .notification-friend {display: inline-block;}
+.notification-friend {margin-bottom: 0;}
+.notification-event .h6 {font-weight: bolder;font-size: 14px;color: #515365;}
+.notification-event a:hover {color: #ff5e3a;}
+.visit-place-thumb {display: inline-block;position: relative;}
+.visit-place-thumb img {height: 40px;width: 40px;border-radius: 100%;overflow: hidden;max-width: unset;}
+.bs-caret{display: none;}
+.olymp-three-dots-icon {width: 16px;height: 4px;}
+.more {cursor: pointer;position: relative;transition: all .3s ease;color: #888da8;fill: #c0c4d8;}
+.olymp-little-delete {width: 8px;height: 8px;}
+.about_section{width: 76.3%; margin-left: 10px;}
+.about_section .nav-tabs{width: 170px;height: 110px;border-radius: 5px;background-color: #1b547e;}
+.data-row .data-name, .data-row .data-value {display: inline-block;vertical-align: middle;padding: 5px;}
+.data-row .data-name {width: 12em;color: #242a30;background-color: #d3d8dd;border-color: #d3d8dd;font-size: 0.9em;}
+.info-edit-button{position: absolute;top: 27px;}
+.info-edit-dropdown{position: absolute;left: 70%;margin-top: 43px;min-width: 80px !important;}
+.bio-edit-button{position: absolute;top: 27px;color: #707478;}
+.bio-edit-dropdown{position: absolute;left: 86%;margin-top: 43px;min-width: 80px !important;}
+.about_section .nav-tabs a{font-size: 11px;height: 35px;padding-top: 7px;color: #fff;}
+#about-modal-title{font-size: 14px !important;font-weight: bolder !important;color: #515365 !important;}
+.about-ui-block-content{padding: 25px;}
+.add-md-3{padding-left: 0px;}
+.cancel-md-3{margin-left: -20px;padding-left: 0px;}
+
+.multiselect, .multiselect__input, .multiselect__single { font-size: 12px !important;}
+.multiselect__element{text-transform: capitalize;}

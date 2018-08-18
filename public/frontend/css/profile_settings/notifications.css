@@ -1,0 +1,129 @@
+.justify-content-center {
+    justify-content: center !important;
+}
+.page-link:focus, .page-link:hover {
+    color: #fff;
+    text-decoration: none;
+    background-color: #ff5e3a !important;
+    border-color: #ddd;
+}
+.notify_pagination {
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+.notify_pagination .page-item {
+    font-size: 12px;
+    font-weight: 700;
+    padding: 0 4px;
+}
+.notify_pagination .page-link {
+    border-radius: 5px;
+}
+.olymp-three-dots-icon {
+    width: 16px;
+    height: 4px;
+}
+.notification-list {
+    margin-bottom: 0;
+}
+.notification-list .selectize-dropdown-content > *:hover, .notification-list li:hover {
+    background-color: #fafbfd;
+}
+.notification-list .selectize-dropdown-content > *, .notification-list li {
+    padding: 25px;
+    border-bottom: 1px solid #e6ecf5;
+    display: block;
+    position: relative;
+    transition: all .3s ease;
+}
+.notification-list .author-thumb {
+    height: 40px;
+    width: 40px;
+}
+.notification-list .selectize-dropdown-content > * > *, .notification-list li > * {
+    margin-bottom: 0;
+    display: inline-block;
+    vertical-align: middle;
+}
+.author-thumb {
+    display: inline-block !important;
+    position: relative;
+}
+.author-thumb img {
+    border-radius: 100%;
+    overflow: hidden;
+    max-width: 40px;
+}
+.notification-list .notification-event {
+    padding-left: 5px;
+}
+.notification-list .selectize-dropdown-content > * > *, .notification-list li > * {
+    margin-bottom: 0;
+    display: inline-block;
+    vertical-align: middle;
+}
+.notification-list .notification-friend {
+    display: inline-block;
+}
+.notification-friend {
+    margin-bottom: 0;
+}
+.notification-event a:hover {
+    color: #ff5e3a;
+}
+.notification-list .notification-link {
+    color: #ff5e3a;
+}
+.notification-event .h6 {
+    font-weight: bolder;
+    font-size: 14px;
+    color: #515365;
+}
+.notification-list .notification-date {
+    font-size: 11px;
+    display: block;
+    margin-top: 5px;
+}
+.notification-list .notification-icon {
+    color: #d7d9e5;
+    fill: #d7d9e5;
+    float: right;
+    margin-top: 6px;
+}
+.notification-list .notification-icon svg {
+    width: 22px;
+    height: 20px;
+}
+.notification-list .selectize-dropdown-content > *:hover .more, .notification-list li:hover .more {
+    opacity: 1;
+}
+.notification-list .more {
+    position: absolute;
+    right: 10px;
+    top: 5px;
+    font-size: 10px;
+    color: #d6d9e6;
+    opacity: 0;
+}
+.notification-list .more svg + svg {
+    margin-left: 5px;
+}
+.olymp-little-delete {
+    width: 8px;
+    height: 8px;
+}
+.notification-list .selectize-dropdown-content > *.un-read, .notification-list li.un-read {
+    background-color: #f7f9fc;
+}
+.notification-list .comment-photo {
+    margin: 30px 0 0 60px;
+    max-width: 280px;
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+}
+.notification-list .comment-photo span {
+    background-color: #f5f7fb;
+    padding: 0 15px;
+}

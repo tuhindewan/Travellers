@@ -1,0 +1,27 @@
+.description-toggle {
+    display: table;
+    width: 100%;
+    margin-bottom: 30px;
+}
+.description-toggle > * {
+    display: table-cell;
+    vertical-align: middle;
+}
+.description-toggle p {
+    margin-bottom: 0;
+    width: 600px;
+}
+.description-toggle .togglebutton {
+    text-align: right;
+}
+.description-toggle .togglebutton {
+    text-align: right;
+}
+.togglebutton, .togglebutton label, .togglebutton input, .togglebutton .toggle {
+    user-select: none;
+}
+.togglebutton {
+    vertical-align: middle !important;
+    margin-bottom: 20px;
+}
+

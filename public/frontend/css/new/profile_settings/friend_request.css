@@ -1,0 +1,64 @@
+.friend-requests .notification-friend {display: block;}
+.notification-friend{margin-bottom: 5px;}
+.notification-event a:focus{color: #ff5e3a;text-decoration: none;}
+
+.friend-requests .notification-icon {
+    margin-top: 0;
+}
+.accept-request {
+    display: inline-block;
+    font-weight: 700;
+    line-height: 1;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    user-select: none;
+    border: 1px solid transparent;
+    padding: 8px;
+    font-size: 11px;
+    border-radius: 0.25rem;
+    transition: all 0.2s ease-in-out;
+    background-color: #38a9ff;
+    color: #fff;
+    fill: #fff;
+}
+.accept-request:hover, .accept-request:focus {
+    color: #fff;
+    fill: #fff;
+    opacity: .9;
+    text-decoration: none;
+}
+.alredy-friends .icon-add {
+    position: relative;
+    display: inline-block;
+    margin-right: 0px;
+    vertical-align: middle;
+}
+.icon-add {
+    position: relative;
+    display: inline-block;
+    margin-right: 0px;
+    vertical-align: middle;
+}
+.accept-request svg {
+    width: 20px;
+    height: 20px;
+}
+.accept-request + .accept-request {
+    margin-left: 8px;
+}
+.icon-minus {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+}
+.request-del{background: #9a9fbf; }
+.friend-requests .accepted .notification-friend {
+    display: inline-block;
+}
+.friend-requests .accepted .notification-link {
+    color: #00b7ff;
+}
+.bg-blue-request{
+    background-color: #38a9ff;
+}

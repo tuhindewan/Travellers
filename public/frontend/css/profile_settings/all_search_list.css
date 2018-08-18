@@ -1,0 +1,62 @@
+    
+
+	.chat-user-name{color:#3c3c3c !important;}
+    .search-navbar{    margin-top: -2px;
+    margin-left: -5px;
+    margin-right: -3px;}
+
+     .chat-card-header {
+        padding: 1px 15px;
+        background-color: #fafafa;
+        font-weight: 600;
+    }
+    .filterlist{
+    	color: #888da8;
+    	font-size: 12px;
+    	font-weight: 600;
+    }
+    .btn-tag-location{
+    	background: transparent;
+    	margin-left: -6px;
+    }
+
+    .btn-tag-date{
+    	background: transparent;
+    	margin-left: -6px;
+    }
+    .btn-tag-city{
+    	background: transparent;
+    	margin-left: -6px;
+    }
+    .btn-tag-friends{
+    	background: transparent;
+    	margin-left: -6px;
+    }
+    .agency-msg{
+    	display: inline-block;
+	    font-weight: 700;
+	    line-height: 1;
+	    text-align: center;
+	    white-space: nowrap;
+	    vertical-align: middle;
+	    user-select: none;
+	    border: 1px solid transparent;
+	    padding: 8px;
+	    font-size: 11px;
+	    border-radius: 0.25rem;
+	    transition: all 0.2s ease-in-out;
+	    background-color: #8f9497;
+	    color: #fff;
+	    fill: #fff;
+    }
+    .agency-msg:hover{
+    	color: #fff;
+    	text-decoration: none;
+    }
+    .agency-msg:focus{
+    	color: #fff;
+    	text-decoration: none;
+    }
+    .announce-text-div{margin: 10px 0;}
+    .chat-search { right: 12px !important;}
+

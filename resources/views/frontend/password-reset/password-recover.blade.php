@@ -1,0 +1,95 @@
+@include('frontend._partials.header')
+	<div class="main-map-bottom">
+		<div class="container">
+			<div class="verification-section">
+				<div class="row">
+					<div class="col-sm-3">
+						@include('frontend._partials.logo')	
+					</div>
+					<div class="col-sm-6">
+						<div class="verification res_mt_8">
+							<div class="overlay" style="border-radius: unset; min-height: 210px;"></div>
+							<div class="">
+								{!! Form::open(array('url' => 'recover-method','class'=>'form-horizontal','method'=>'GET','files'=>'true')) !!} 
+								{!! csrf_field() !!}
+								<div class="verification-title">
+									<div class="verification-heading">Reset your password</div>
+									
+			<div class="verification-body res_panel">
+				<div class="panel-body" >
+	                <div class="row no_padding">
+	                  <div class="col-md-8">
+	                    
+                        <div class="form-group ">
+                            <div class="col-md-10">
+                                <span class="res_fs_10">How do you want to receive the code to reset your password?</span>
+                            </div>
+                            <div class="col-md-10">
+                              
+                                  <div class="radio">
+                                    <label>
+                                	<?php 
+					    				$email = $getUser->email;
+					    				$emailExp  = explode('@', $email);
+					    				$emailPart1 = $emailExp[0];
+					    				$emailPart2 = $emailExp[1];
+					    				$emailcharFirst = $emailPart1[0]; 	
+					    				$emailcharLast = substr($emailPart1, -1); 
+					    				$emailExm = $emailcharFirst."******".$emailcharLast;
+
+					    			 ?>
+                                      <input type="radio" value="{{$emailExm.'@'.$emailPart2}}" name="receive_code" checked style="margin-top: 2px;"><i class="fa fa-envelope res_fs_10" style="color: #d8dfed;font-size: 15px;"></i> 
+                                      <span class="res_fs_10" style="font-weight: bolder;">Send code via email</span>
+                                      <br>
+                                      <span class="res_email-address" style="margin-left: 20px;">
+                                      	
+						    			{{$emailExm.'@'.$emailPart2}}
+                                      </span>
+                                    </label>
+                                  </div>
+                                
+                            </div>
+                        </div>
+                         
+	                  </div>
+	                  <div class="col-md-4 res_div"  style="border-left: 1px solid #eeeeee;">
+	                    <div class="row">
+	                      <div class="col-md-6 col-md-offset-3 ">
+	                        <img alt="example image"  style="height: 60px;" src='{{URL::to("/images/users/profile/s80$getUser->profile_image")}}'> 
+	                      </div>
+	                      <div class="col-sm-12">
+	                        <h5 style="font-weight: bolder; text-align:center ; text-transform: capitalize;">{{ $getUser->fullname }} <br> <span style="font-size: 12px;">User</span></h5>
+	                      </div>
+	                    </div>
+	                  </div>
+	                </div>
+	             </div>
+			</div>
+									<input type="hidden" value="{{ $getUser->_id }}" name="token_id">
+									<div class="verification-footer">
+										<div class="row">
+											<div class="col-md-7">
+												
+											</div>
+									    	<div class="col-md-5 pull-right">
+									    		<button type="submit" class="btn btn-success btn-sm" style="margin-left: 6px; float: right;">Continue</button>
+									    		
+									    		<a href="{{URL::to('/')}}" class="btn btn-default btn-sm" style="float: right;">Cancel</a>
+									    	</div>	
+										</div>
+									</div>
+								</div>
+								{!! Form::close(); !!}
+								
+							</div>
+							
+						</div>
+					</div>
+					<div class="col-sm-1"></div>
+					<div class="col-sm-2">
+						
+					</div>
+				</div>
+			</div>
+		</div>
+		@include('frontend._partials.footer')

@@ -1,0 +1,11 @@
+.slide_upload {border: 1px dashed #999; bottom:48px;}
+.load_select_option{width: 100%; height: 100%; margin:0 15px;}
+.load_chose_file{display: inline;}
+.single_load_file{width: 100px;height: 100px; position: relative; display: inherit; clear: both;}
+.file_cancel_btn{padding: 0px 5px !important; background: transparent; color: #f14949; border-color: #949496; position: absolute; bottom: 37px; right: 0px;}
+.remove_file{display: none;}
+
+.pac-container {z-index: 10000 !important;}
+#pac-input{margin: 0px;width: 100% !important;}
+.post-modal input::placeholder {color: #828282 !important; }
+.post-modal textarea::placeholder{color: #828282 !important; }

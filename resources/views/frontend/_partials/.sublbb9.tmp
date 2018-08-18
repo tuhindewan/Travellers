@@ -1,0 +1,453 @@
+@push('css-style')
+	<link rel="stylesheet" href="{{asset('public/frontend/css/nav/nav.css')}}">
+	<link rel="stylesheet" href="{{asset('public/frontend/css/responsive.css')}}">
+	<style type="text/css">
+	.navbar-nav>li>div>a { line-height: 20px; padding: 17px 15px}
+	.navbar-nav>li>div>a:focus,
+	.navbar-nav>li>a:hover { opacity: .6; filter: alpha(opacity=60)}
+	.navbar-nav>li>a .label, .navbar-nav>li>div>a .label { position: absolute; top: 7px; right: 3px; display: block; background: #ff5b57; line-height: 12px; font-weight: 300; padding: .3em .6em; -webkit-border-radius: 20px; -moz-border-radius: 20px; border-radius: 20px}
+	
+	</style>
+@endpush
+
+<section class="navigation">
+	
+	<!-- begin #header -->
+		<div id="header" class="header navbar navbar-default navbar-fixed-top">
+
+				<!-- mobile navigation bar start -->
+				<nav class="navbar navbar-fixed-top  hidden-md hidden-lg">
+			      <div class="container-fluid">
+			        <div class="navbar-header">
+			          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+			            <span class="icon-bar"></span>
+			            <span class="icon-bar"></span>
+			            <span class="icon-bar"></span>                        
+			          </button>
+			          	<a href="{{URL::to('/')}}" class="navbar-brand header_logo">
+			            	<img src="{{asset('public/frontend/img/logo.png')}}" alt="" />
+			          	</a>
+
+
+			          <ul class="res_ul">
+			          	<li class="res_li">
+							<a href="javascript:;" data-toggle="dropdown" class="dropdown-toggle f-s-14">
+								<i class="fa fa-search fa-lg"></i>
+							</a>
+    						<ul class="dropdown-menu media-list pull-right animated fadeInDown" style="width: 400px;">
+                                <li class="dropdown-header">Friend Requests</li>
+
+                                <div class="mCustomScrollbar" data-mcs-theme="dark">
+
+                                </div>
+    							
+                                <li class="dropdown-footer text-center">
+                                    <a href="#">View more</a>
+                                </li>
+    						</ul>
+			          	</li>
+			            <li>
+							<?php 
+							$unreadNoti = App\Models\Notification::where('status',1)
+							            ->where('user_logged',Auth::user()->_id)
+							            ->count();
+							?>
+
+							<?php 
+							$requestCount = App\Models\Relationship::where('status',0)
+							            ->where('user_id_two',Auth::user()->_id)
+							            ->count();
+							?>
+							<?php $countNoti = $requestCount + $unreadNoti; ?>
+							@if($countNoti==0)
+								<a href="javascript:;" data-toggle="dropdown" class="dropdown-toggle f-s-14">
+									<i class="fa fa-user-o fa-lg" aria-hidden="true" ></i>
+								</a>
+							@else
+								<a href="javascript:;" data-toggle="dropdown" class="dropdown-toggle f-s-14">
+									<i class="fa fa-user-o fa-lg" aria-hidden="true" ></i>
+									<span class="label">{{ $countNoti }}</span>
+								</a>
+							@endif
+							
+							<ul class="dropdown-menu media-list pull-right animated fadeInDown" style="width: 400px;">
+	                            <li class="dropdown-header">Friend Requests</li>
+
+	                            <div class="mCustomScrollbar" data-mcs-theme="dark">
+
+
+	                            	<ul class="notification-list friend-requests">
+										<?php 
+										$notis = App\Models\Notification::where('user_logged',Auth::user()->_id)->where('status',1)->orderBy('created_at','desc')->limit(4)->get();
+										?>
+										@foreach($notis as $noti)
+										@if($noti['type']==1)
+					                    <li class="listed">
+					                    	<div class="row" style="padding: 0 10px; width:100%;">
+					                    		<?php $s_id = $noti['sender']; $n_id = $noti['_id'];?>
+					                    		<div class="col-sm-2">
+	                            					<div class="request-thum">
+	                            						<?php 
+							                        	$image = $noti->senderuser['profile_image']; 
+							                        	?>
+			                            				<img src='{{asset("images/users/profile/s80$image")}}' class="media-object" alt="" />
+			                            			</div>
+	                            				</div>
+	                            				<div class="col-sm-10">
+	                            					<div class="request-event">
+			                            				<a href="{{URL::to('view_profile')}}/{{$s_id}}/{{$n_id}}">
+						                        	
+						                            
+								                            <div class="media-body">
+								                                <h6 class="media-heading inline">{{ $noti->senderuser['fullname'] }}</h6>
+								                                <p class=" inline">Accepted yor friend request</p>
+								                                <div class="text-muted f-s-11">{{$noti['created_at']->diffForHumans()}}</div>
+								                            </div>
+								                        </a>
+			                            				
+			                            			</div>	
+	                            				</div>
+					                    		
+					                    	</div>
+					                    </li>
+					                    <hr>
+					                    @endif
+										@endforeach
+
+	                            		<?php 
+	                            		$requesters = App\Models\Relationship::where('user_id_two','=',Auth::user()->_id)->where('status',0)->get();
+	                            		?>
+										@foreach($requesters as $requester)
+	                            		<li class="listed">
+	                            			<div class="row" style="padding: 0 10px; width:100%;">
+	                            				<div class="col-sm-2">
+	                            					<div class="request-thum">
+			                            				<?php 
+			                            					$image = $requester->users['profile_image'];
+			                            					$username = $requester->users['username'];
+			                            				?>
+			                            				<img src='{{asset("images/users/profile/s80$image")}}'>
+			                            			</div>
+	                            				</div>
+	                            				<div class="col-sm-6">
+	                            					<div class="request-event">
+			                            				<a href='{{URL::to("/$username")}}' class="h6 request-friend">{{$requester->users->fullname}}</a>
+			                            				
+			                            			</div>	
+	                            				</div>
+	                            				<div class="col-sm-4 no_padding">
+	                        						<?php 
+	                        						$check = DB::collection('relationships')->where('user_id_two','=',Auth::user()->_id)->where('user_id_one','=',$requester->user_id_one)->where('status','=',1)->first();
+			                        				if($check==''){		
+		                            				?>
+			                            			<div class="notification-icon">
+			                            				<a href="{{url('/accepterequest')}}/{{$requester->user_id_one}}" class="accept-request btn btn-success btn-sm">
+			                            					<span class="icon-add without-text">
+			                            						Accept
+			                            					</span>
+			                            				</a>
+
+			                            				<a href="{{url('/unfriend2')}}/{{$requester->user_id_one}}" class="accept-request request-del btn btn-default btn-sm">
+			                            					<span class="icon-minus">
+			                            						Reject
+			                            					</span>
+			                            				</a>
+			                            			</div>
+			                            			<?php }else{ ?>
+			                            				<p class="btn btn-info btn-sm">Friend</p>
+			                            			<?php } ?>	
+	                            				</div>
+	                            			</div>
+	                            			
+	                            		</li>
+										@endforeach
+
+	                            	</ul>
+	                            </div>
+								
+	                            <li class="dropdown-footer text-center">
+	                                <a href="#">View more</a>
+	                            </li>
+							</ul>
+			            </li>
+			            <li>
+	            	        <a href="javascript:;" data-toggle="dropdown" class="dropdown-toggle f-s-14">
+	            	            <i class="fa fa-comments-o fa-lg" aria-hidden="true"></i>
+	            	            <span class="label" v-if="countNotification > 0">@{{ countNotification }}</span>
+	            	        </a>
+
+	            	        <ul class="dropdown-menu media-list pull-right animated fadeInDown" style="width: 400px;">
+	            				<message-notification v-on:getcurrentuser="getCurrentUser"></message-notification>
+	            			</ul>
+			            </li>
+			            <li>
+			            	<feed-notification></feed-notification>
+			            </li>
+			          </ul>
+
+			          
+			          
+			        </div>
+			        <div class="collapse navbar-collapse" id="myNavbar">
+			          <ul class="nav navbar-nav">
+            			<li class=" {{ Request::is('/')?"active":"" }} "><a href="{{URL::to('/')}}">Home</a></li>
+            			<?php $username = Auth::user()->username; ?>
+                        <li class='{{ Request::is("$username") ? "active":"" }}'><a href='{{URL::to("/$username")}}'>Profile</a></li>
+                        <li class=" {{ Request::is('connection')?"active":"" }} "><a href="{{URL::to('/connection')}}">Connection</a></li>
+                        <li class="{{ Request::is('map')?'active':'' }}"><a href="{{URL::to('/map')}}">Map</a></li>
+                        <li class="{{ Request::is('stay-with-locals')?'active':'' }}"><a href="{{URL::to('/stay-with-locals')}}">Stay with locals</a></li>
+			          </ul>
+			        </div>
+			      </div>
+			    </nav>
+
+
+			    <!-- mobile navigation bar end -->
+
+
+
+
+			<!-- begin container-fluid -->
+			<div class="container-fluid hidden-xs hidden-sm">
+				<!-- begin mobile sidebar expand / collapse button -->
+				<div class="navbar-header">
+
+					<button type="button" class="navbar-toggle" data-click="sidebar-toggled">
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+				</div>
+				<!-- end mobile sidebar expand / collapse button -->
+				
+				<!-- left -->
+				<div class="status"></div>
+				<ul class="nav navbar-nav navbar-left">
+					<li class="header_logo"><a class="no_padding" href="{{URL::to('/')}}"><img src="{{asset('public/frontend/img/logo.png')}}" alt=""></a></li>
+					<li class=" {{ Request::is('/')?"active":"" }} "><a href="{{URL::to('/')}}">Home</a></li>
+					<?php $username = Auth::user()->username; ?>
+		            <li class='{{ Request::is("$username") ? "active":"" }}'><a href='{{URL::to("/$username")}}'>Profile</a></li>
+		            <li class=" {{ Request::is('connection')?"active":"" }} "><a href="{{URL::to('/connection')}}">Connection</a></li>
+		            <li class="{{ Request::is('map')?'active':'' }}"><a href="{{URL::to('/map')}}">Map</a></li>
+		            <li class="{{ Request::is('stay-with-locals')?'active':'' }}"><a href="{{URL::to('/stay-with-locals')}}">Stay with locals</a></li>
+					
+				</ul>
+				<!-- left end -->
+
+				<!-- begin header navigation right -->
+				<ul class="nav navbar-nav navbar-right">
+					<li>
+						{!! Form::open(array('url' => 'search','class'=>'form-horizontal navbar-form full-width','method'=>'POST','files'=>'true')) !!}
+						{!! csrf_field() !!}
+						
+							<div class="form-group">
+								<input type="hidden" name="type" value="1">
+								<input name="search" type="text" class="form-control" placeholder="Enter keyword" onkeypress="search_keyword(event , this.value)" id="search-keyword" />
+								<button onclick="search_btn()" type="submit" class="btn btn-search "><i class="fa fa-search navbar-search"></i></button>
+							</div>
+						{!! Form::close(); !!}
+					</li>
+					<li class="dropdown">
+						
+						<?php 
+						$unreadNoti = App\Models\Notification::where('status',1)
+						            ->where('user_logged',Auth::user()->_id)
+						            ->count();
+						?>
+
+						<?php 
+						$requestCount = App\Models\Relationship::where('status',0)
+						            ->where('user_id_two',Auth::user()->_id)
+						            ->count();
+						?>
+						<?php $countNoti = $requestCount + $unreadNoti; ?>
+						@if($countNoti==0)
+							<a href="javascript:;" data-toggle="dropdown" class="dropdown-toggle f-s-14">
+								<i class="fa fa-user-o fa-lg" aria-hidden="true" ></i>
+							</a>
+						@else
+							<a href="javascript:;" data-toggle="dropdown" class="dropdown-toggle f-s-14">
+								<i class="fa fa-user-o fa-lg" aria-hidden="true" ></i>
+								<span class="label">{{ $countNoti }}</span>
+							</a>
+						@endif
+						
+						<ul class="dropdown-menu media-list pull-right animated fadeInDown" style="width: 400px;">
+                            <li class="dropdown-header">Friend Requests</li>
+
+                            <div class="mCustomScrollbar" data-mcs-theme="dark">
+
+
+                            	<ul class="notification-list friend-requests">
+									<?php 
+									$notis = App\Models\Notification::where('user_logged',Auth::user()->_id)->where('status',1)->orderBy('created_at','desc')->limit(4)->get();
+									?>
+									@foreach($notis as $noti)
+									@if($noti['type']==1)
+				                    <li class="listed">
+				                    	<div class="row" style="padding: 0 10px; width:100%;">
+				                    		<?php $s_id = $noti['sender']; $n_id = $noti['_id'];?>
+				                    		<div class="col-sm-2">
+                            					<div class="request-thum">
+                            						<?php 
+						                        	$image = $noti->senderuser['profile_image']; 
+						                        	?>
+		                            				<img src='{{asset("images/users/profile/s80$image")}}' class="media-object" alt="" />
+		                            			</div>
+                            				</div>
+                            				<div class="col-sm-10">
+                            					<div class="request-event">
+		                            				<a href="{{URL::to('view_profile')}}/{{$s_id}}/{{$n_id}}">
+					                        	
+					                            
+							                            <div class="media-body">
+							                                <h6 class="media-heading inline">{{ $noti->senderuser['fullname'] }}</h6>
+							                                <p class=" inline">Accepted yor friend request</p>
+							                                <div class="text-muted f-s-11">{{$noti['created_at']->diffForHumans()}}</div>
+							                            </div>
+							                        </a>
+		                            				
+		                            			</div>	
+                            				</div>
+				                    		
+				                    	</div>
+				                    </li>
+				                    <hr>
+				                    @endif
+									@endforeach
+
+                            		<?php 
+                            		$requesters = App\Models\Relationship::where('user_id_two','=',Auth::user()->_id)->where('status',0)->get();
+                            		?>
+									@foreach($requesters as $requester)
+                            		<li class="listed">
+                            			<div class="row" style="padding: 0 10px; width:100%;">
+                            				<div class="col-sm-2">
+                            					<div class="request-thum">
+		                            				<?php 
+		                            					$image = $requester->users['profile_image'];
+		                            					$username = $requester->users['username'];
+		                            				?>
+		                            				<img src='{{asset("images/users/profile/s80$image")}}'>
+		                            			</div>
+                            				</div>
+                            				<div class="col-sm-6">
+                            					<div class="request-event">
+		                            				<a href='{{URL::to("/$username")}}' class="h6 request-friend">{{$requester->users->fullname}}</a>
+		                            				
+		                            			</div>	
+                            				</div>
+                            				<div class="col-sm-4 no_padding">
+                        						<?php 
+                        						$check = DB::collection('relationships')->where('user_id_two','=',Auth::user()->_id)->where('user_id_one','=',$requester->user_id_one)->where('status','=',1)->first();
+		                        				if($check==''){		
+	                            				?>
+		                            			<div class="notification-icon">
+		                            				<a href="{{url('/accepterequest')}}/{{$requester->user_id_one}}" class="accept-request btn btn-success btn-sm">
+		                            					<span class="icon-add without-text">
+		                            						Accept
+		                            					</span>
+		                            				</a>
+
+		                            				<a href="{{url('/unfriend2')}}/{{$requester->user_id_one}}" class="accept-request request-del btn btn-default btn-sm">
+		                            					<span class="icon-minus">
+		                            						Reject
+		                            					</span>
+		                            				</a>
+		                            			</div>
+		                            			<?php }else{ ?>
+		                            				<p class="btn btn-info btn-sm">Friend</p>
+		                            			<?php } ?>	
+                            				</div>
+                            			</div>
+                            			
+                            		</li>
+									@endforeach
+
+                            	</ul>
+                            </div>
+							
+                            <li class="dropdown-footer text-center">
+                                <a href="#">View more</a>
+                            </li>
+						</ul>
+					</li>
+
+					<li class="dropdown">
+
+				        <a href="javascript:;" data-toggle="dropdown" class="dropdown-toggle f-s-14">
+				            <i class="fa fa-comments-o fa-lg" aria-hidden="true"></i>
+				            <span class="label" v-if="countNotification > 0">@{{ countNotification }}</span>
+				        </a>
+
+				        <ul class="dropdown-menu media-list pull-right animated fadeInDown" style="width: 400px;">
+							<message-notification v-on:getcurrentuser="getCurrentUser"></message-notification>
+						</ul>
+					</li>
+					<li class="dropdown" style="margin-top:17px;">
+						<feed-notification></feed-notification>
+					</li>
+					<li class="dropdown">
+						<booking-notification></booking-notification>
+					</li>
+					<li class="dropdown navbar-user">
+						<?php 
+						$user_id = Auth::user()->_id;
+						$getUser = App\User::findOrFail($user_id);
+						$image = Auth::user()->profile_image;
+						if(!empty($image)){
+							$profile_image = url('/images/users/profile/s80').$image;
+						}else{
+							if(Auth::user()->gender=='Mr'){
+								$profile_image = url('/public/frontend/img/user.jpg');
+							}else{
+								$profile_image = url('/public/frontend/images/Anonymous_female.png');
+							}
+						}
+						?>
+						<a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
+							<img src="{{ $profile_image }}" alt="{{ Auth::user()->fullname }}" />
+							<span class="hidden-xs">{{Auth::user()->fullname}}</span> <b class="caret"></b>
+						</a>
+						<ul class="dropdown-menu animated fadeInLeft">
+							<li class="arrow"></li>
+							<!-- <li><a href="{{URL::to('edit-profile')}}">Edit Profile</a></li> -->
+							<li><a href="{{URL::to('settings')}}">Settings</a></li>
+							<li class="divider"></li>
+							<li><a href="{{URL::to('/users/logout')}}">Log Out</a></li>
+						</ul>
+					</li>
+				</ul>
+				<!-- end header navigation right -->
+			</div>
+			<!-- end container-fluid -->
+			
+
+			
+				<!-- <nav class="navbar navbar-default navbar-xs fadeout_navbar" role="navigation" style="margin-bottom: 0px; display: none;">
+				  
+				  <div class="navbar-header">
+				    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+				      <span class="sr-only">Toggle navigation</span>
+				      <span class="icon-bar"></span>
+				      <span class="icon-bar"></span>
+				      <span class="icon-bar"></span>
+				    </button>
+				  </div>
+				
+				  Collect the nav links, forms, and other content for toggling
+				  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" style="margin-top: 10px;">
+				    <ul class="nav navbar-nav">
+				      <li class="active"><a href="#map-timeline"><i class="fa fa-fw fa-bars"></i> Timeline</a></li>
+				      <li><a href="about.html"><i class="fa fa-fw fa-user"></i> About</a></li>
+				      <li><a href="friends.html"><i class="fa fa-fw fa-users"></i> Friends</a></li>
+				      <li><a href="photos1.html"><i class="fa fa-fw fa-image"></i> Photos</a></li>
+				      
+				    </ul>
+				  </div>
+				</nav> -->
+				<!-- end scroll-show navbar -->
+		</div>
+		<!-- end #header -->
+	
+</section>

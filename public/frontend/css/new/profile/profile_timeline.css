@@ -1,0 +1,52 @@
+.profile-left-section{width: 78.7%;padding: 0px !important;margin-top: -10px;}
+.news-scetion{padding: 10px !important;width: 502px;padding-left: 2px !important;margin-top: -10px!important;}
+.timeline-row-newsletter{margin-top: -21px!important;}
+.timeline_set_box_panel{margin: 5px 0; background: white !important; position: relative;z-index: 11;color: #fff; border: 0; cursor: text;}
+.timeline-plan-image{position: absolute;top: 10%;left: 36%; background-color: white;border-radius: 42px;width: 21px;padding: 2px;}
+.timeline-suggestions-image{position: absolute;top: 20%;left: 36%; background-color: white;border-radius: 42px;width: 21px;padding: 2px;}
+.timeline-experiences-image{position: absolute;top: 30%;left: 36%; background-color: white;border-radius: 42px;width: 21px;padding: 2px;}
+.timeline-questions-image{position: absolute;top: 40%;left: 36%; background-color: white;border-radius: 42px;width: 21px;padding: 2px;}
+.timeline-semi-transparent-button {display: block; box-sizing: border-box;padding: 3px;width: 4%;max-width: 200px; background: #fff;background: rgba(255, 255, 255, 0.3);color: #fff;text-align: center;text-decoration: noneletter-spacing: 1px;transition: all 0.3s ease-out;position: absolute;top: 14%;left: 30.3%; margin-left: 60px;border-radius: 12px;height: 25px;
+}
+.timeline-semi-transparent-button:hover,
+.timeline-semi-transparent-button:focus,
+.timeline-semi-transparent-button:active {
+  transition: all 0.5s ease-in;
+  text-decoration: none;
+  color: white;
+  background: rgba(255, 255, 255, 0.6);
+}
+.timeline-suggestions-transparent-button {display: block;box-sizing: border-box;padding: 3px;width: 7.5%;max-width: 200px;background: #fff;background: rgba(255, 255, 255, 0.3);color: #fff;text-align: center;text-decoration: none; letter-spacing: 1px;transition: all 0.3s ease-out;position: absolute; top: 24%; left: 28.6%; margin-left: 60px;border-radius: 12px;height: 25px;
+}
+.timeline-suggestions-transparent-button:hover,
+.timeline-suggestions-transparent-button:focus,
+.timeline-suggestions-transparent-button:active {
+  transition: all 0.5s ease-in;
+  text-decoration: none;
+  color: white;
+  background: rgba(255, 255, 255, 0.6);
+}
+.timeline-experiences-transparent-button {display: block;box-sizing: border-box;padding: 3px;width: 7.5%;max-width: 200px;background: #fff;background: rgba(255, 255, 255, 0.3);color: #fff;text-align: center;text-decoration: none;letter-spacing: 1px;transition: all 0.3s ease-out;position: absolute;top: 34%;left: 28.6%; margin-left: 60px;border-radius: 12px;height: 25px;
+}
+.timeline-experiences-transparent-button:hover,
+.timeline-experiences-transparent-button:focus,
+.timeline-experiences-transparent-button:active {
+  transition: all 0.5s ease-in;
+  text-decoration: none;
+  color: white;
+  background: rgba(255, 255, 255, 0.6);
+}
+.timeline-questions-transparent-button {display: block;box-sizing: border-box;padding: 3px;width: 6.4%;max-width: 200px; background: #fff;background: rgba(255, 255, 255, 0.3);color: #fff;text-align: center;text-decoration: none;letter-spacing: 1px;transition: all 0.3s ease-out;position: absolute;top: 44%;left: 29%; margin-left: 60px;border-radius: 12px;height: 25px;
+}
+.timeline-questions-transparent-button:hover,
+.timeline-questions-transparent-button:focus,
+.timeline-questions-transparent-button:active {
+  transition: all 0.5s ease-in;
+  text-decoration: none;
+  color: white;
+  background: rgba(255, 255, 255, 0.6);
+}
+#timeline-top-split{width: 100%;background-color:transparent; padding: 30px;margin: 0px;padding-left: 20px; height: 246px; max-height: 246px;}
+#timeline-bottom-split{width: 100%; margin: 0;height: 280px;max-height: 280px;display: inline-block;}
+.timeline-aside-right-overlay{width: 100%; height: 100%; position: absolute; top: 0; right: 0;  background: #c7c7c7; opacity: 0.3; z-index: -1;}
+.newsletter-scroll-row{width: 493px;}
